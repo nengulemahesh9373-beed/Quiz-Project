@@ -1,0 +1,45 @@
+CREATE DATABASE mahesh_quiz;
+USE mahesh_quiz;
+
+-- Store the questions and the correct answer
+CREATE TABLE questions (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  question TEXT NOT NULL,
+  option_a VARCHAR(255),
+  option_b VARCHAR(255),
+  option_c VARCHAR(255),
+  option_d VARCHAR(255),
+  correct_option CHAR(1)
+);
+
+-- Store each student’s result
+CREATE TABLE results (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  student_id VARCHAR(50),
+  student_name VARCHAR(100),
+  correct_answers INT,
+  total_questions INT,
+  percentage DECIMAL(5,2),
+  submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO questions (question, option_a, option_b, option_c, option_d, correct_option) VALUES
+('What does EC2 stand for?','Elastic Compute Cloud','Elastic Container Cloud','External Compute Cluster','Enterprise Compute Cloud','A'),
+('Which AWS service is object storage?','EBS','S3','EFS','RDS','B'),
+('Which service is serverless compute?','EC2','Lambda','ECS','EKS','B'),
+('Which service is a managed relational database?','DynamoDB','Aurora','RDS','ElastiCache','C'),
+('What is IAM used for?','Identity & Access Management','Compute scaling','Block storage','Networking','A'),
+('Which service automatically distributes incoming application traffic across targets?','CloudFront','Elastic Beanstalk','Route 53','Elastic Load Balancer (ELB)','D'),
+('Which service is a CDN?','CloudFront','S3','SES','IAM','A'),
+('What does VPC stand for?','Virtual Private Cloud','Virtual Public Cloud','Virtual Private Cluster','Virtual Physical Cloud','A'),
+('Which service is used for DNS routing?','CloudWatch','CloudTrail','Route 53','SNS','C'),
+('What does SQS provide?','Simple Queue Service (message queuing)','SQL database','Object storage','Serverless compute','A'),
+('Which storage type is block-level and used with EC2?','S3','EFS','Glacier','EBS','D'),
+('Which is best for long-term archival storage?','S3 Standard','S3 Intelligent-Tiering','AWS Glacier','EBS','C'),
+('What is CloudWatch used for?','Monitoring and logs','Database service','Content delivery','Identity management','A'),
+('Which service provides event-driven functions?','Lambda','EC2','ECS','ELB','A'),
+('Which database is NoSQL managed by AWS?','RDS','Aurora','DynamoDB','Redshift','C'),
+('Which service helps migrate databases to AWS?','DMS (Database Migration Service)','CloudFormation','OpsWorks','CodeDeploy','A'),
+('What is the primary purpose of CloudFormation?','Monitoring','Provision infrastructure as code','Send emails','Store files','B'),
+('Which service is for container orchestration (Kubernetes)?','ECS','ECR','EKS','Lambda','C'),
+('What is ECR used for?','Message queuing','Container image registry','Block storage','Content delivery','B'),
+('Which service helps manage secrets and keys?','IAM','SNS','CloudWatch','KMS (Key Management Service)','D');
